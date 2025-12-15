@@ -6,8 +6,7 @@ require('dotenv').config();
 
 // ADD THESE 2 LINES ⬇️
 const authRoutes = require('./routes/auth');
-//const fileRoutes = require('./routes/files'); // Create later
-// ⬆️
+const fileRoutes = require('./routes/files');
 
 const app = express();
 
@@ -19,8 +18,8 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // ADD THESE 2 LINES ⬇️
 app.use('/api/auth', authRoutes);
-//app.use('/api/files', fileRoutes);
-// ⬆️
+app.use('/api/files', fileRoutes);
+
 
 // Test route
 app.get('/api/health', (req, res) => {

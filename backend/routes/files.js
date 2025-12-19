@@ -178,12 +178,13 @@ const upload = multer({
 router.post(
   '/upload',
   authMiddleware,
-  upload.single('file'),
+  // remove upload.single('file'),
   async (req, res) => {
-    console.log('req.file =', req.file);
+    // console.log('req.file =', req.file);
     console.log('req.body =', req.body);
+    res.json({ ok: true, message: 'Reached upload route without Multer'});
 
-    try {
+    /*try {
       if (!req.file) {
         return res.status(400).json({ error: 'No file uploaded' });
       }
@@ -212,6 +213,7 @@ router.post(
         .status(500)
         .json({ error: error.message || 'Upload failed' });
     }
+        */
   }
 );
 
